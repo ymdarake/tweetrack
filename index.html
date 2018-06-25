@@ -1,0 +1,43 @@
+<html>
+    <head>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./rts.js"></script>
+    <script src="./favorites.js"></script>
+    </head>
+  <body>
+    <div id="stage"></div>
+  </body>
+</html>
+
+<script>
+google.charts.load('current', {packages: ['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+var color = '#0000ff';
+var historicalData = FAVORITES;
+var title = 'Favorite count';
+var label = 'お気に入りされた数';
+if (location.search.indexOf('rt') !== -1) {
+  color = '#e0440e';
+  title = 'RT count';
+  label = 'RTされた数';
+  historicalData = RTS;
+}
+
+function drawChart() {
+  var options = {
+    'title': title,
+    'width': window.innerWidth,
+    'height': window.innerHeight,
+    'colors': [color]
+  };
+  var dateReactionMap = [['日時', label]];
+  dateReactionMap.push(...historicalData);
+
+  var graphData = google.visualization.arrayToDataTable(dateReactionMap);
+
+  var stage = document.getElementById('stage');
+  var chart = new google.visualization.ColumnChart(stage);
+  chart.draw(graphData, options);
+}
+</script>
