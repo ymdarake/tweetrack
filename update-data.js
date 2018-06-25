@@ -22,6 +22,9 @@ client.get('statuses/user_timeline', params, function(error, tweets, response) {
     fs.writeFileSync( "rts.js" , "var RTS = " + JSON.stringify(rts.reverse()))
     fs.writeFileSync( "favorites.js" , "var FAVORITES = " + JSON.stringify(favorites.reverse()))
   }
+  else {
+    console.error(error);
+  }
 });
 
 function formatDate(str) {
