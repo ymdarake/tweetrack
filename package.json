@@ -8,6 +8,6 @@
     "twitter": "^1.7.1"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node update-data.js && node app.js"
   }
 }
