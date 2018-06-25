@@ -29,6 +29,6 @@ client.get('statuses/user_timeline', params, function(error, tweets, response) {
 
 function formatDate(str) {
     var dateObj = new Date(str)
-    return dateObj.getMonth()+1 + "-" + dateObj.getDate()
+    return dateObj.getMonth()+1 + "/" + dateObj.getDate()
 }
 
