@@ -31,7 +31,7 @@ function drawChart() {
     'height': window.innerHeight,
     'colors': [color]
   };
-  var dateReactionMap = [['日時', label]];
+  var dateReactionMap = [['日付', label]];
   dateReactionMap.push(...historicalData);
 
   var graphData = google.visualization.arrayToDataTable(dateReactionMap);
