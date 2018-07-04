@@ -9,7 +9,7 @@ var client = new Twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-var params = {screen_name: '8rocketofficial', count: 150, include_rts: false};
+var params = {screen_name: '8rocketofficial', count: 200, include_rts: false};
 client.get('statuses/user_timeline', params, function(error, tweets, response) {
   if (!error) {
       var rts = [];
